@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real for Tech - Soluções Reais para o Mundo Digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <h1 class="h4 mb-0 ms-3">Real for Tech</h1>
+                </div>
+                <nav>
+                    <ul class="list-unstyled d-flex gap-4 mb-0 nav-menu">
+                        <li><a href="#home" class="text-white text-decoration-none nav-link home-link">Home</a></li>
+                        <li><a href="#servicos" class="text-white text-decoration-none nav-link services-link">Serviços</a></li>
+                        <li><a href="#sobre" class="text-white text-decoration-none nav-link about-link">Sobre</a></li>
+                        <li><a href="#contato" class="text-white text-decoration-none nav-link contact-link">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <style>
+        .nav-menu {
+            position: relative;
+        }
+    
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.4s ease;
+            font-weight: 500;
+        }
+    
+        /* Efeito HOME - Luz que preenche */
+        .home-link {
+            overflow: hidden;
+        }
+    
+        .home-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4dabf7, transparent);
+            transition: all 0.6s ease;
+        }
+    
+        .home-link:hover::before {
+            left: 100%;
+        }
+    
+        .home-link:hover {
+            color: #4dabf7 !important;
+            text-shadow: 0 0 8px rgba(77, 171, 247, 0.4);
+        }
+    
+        /* Efeito SERVIÇOS - Bolhas que sobem */
+        .services-link {
+            overflow: hidden;
+        }
+    
+        .services-link::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: #3b8cf7;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: all 0.5s ease;
+            box-shadow: 
+                0 -15px 0 #2fb0ec,
+                0 -30px 0 #3784f8;
+        }
+    
+        .services-link:hover::after {
+            bottom: 20px;
+            opacity: 1;
+        }
+    
+        .services-link:hover {
+            color: #46bdf5 !important;
+        }
+    
+        /* Efeito SOBRE - Letras que flutuam */
+        .about-link {
+            display: inline-block;
+        }
+    
+        .about-link:hover {
+            animation: floatLetters 0.8s ease forwards;
+            color: #2192fc !important;
+        }
+    
+        @keyframes floatLetters {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    
+        /* Efeito CONTATO - Pulsação digital */
+        .contact-link {
+            position: relative;
+        }
+    
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+    
+        .contact-link:hover::before {
+            border-color: #4f86ff;
+            animation: digitalPulse 1s infinite;
+        }
+    
+        .contact-link:hover {
+            color: #3f7bfc !important;
+        }
+    
+        @keyframes digitalPulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+    
+        /* Efeito comum para todos */
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+
+    <main>
+        <!-- Seção Home -->
+        <section id="home" class="py-5 bg-light">
+            <div class="container text-center hero-content">
+                <div class="hero-text">
+                    <h2 class="display-4 hero-title">Soluções Reais para o Mundo Digital</h2>
+                    <p class="lead hero-subtitle">Desenvolvimento Web, Criação de Logos, Suporte Técnico e Mais.</p>
+                </div>
+                <div class="hero-button-container mt-4">
+                    <a href="#contato" class="btn btn-primary btn-lg hero-button">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            /* Estrutura */
+            .hero-text {
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-button-container {
+                display: flex;
+                justify-content: center;
+            }
+            
+            /* Animação de fundo sutil */
+            #home {
+                position: relative;
+                overflow: hidden;
+                transition: all 0.5s ease;
+            }
+            
+            #home::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(0,123,255,0.05) 0%, rgba(108,117,125,0.05) 100%);
+                opacity: 0;
+                transition: opacity 0.5s ease;
+                z-index: 0;
+            }
+            
+            #home:hover::before {
+                opacity: 1;
+            }
+            
+            /* Efeito no título */
+            .hero-title {
+                position: relative;
+                display: inline-block;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+            
+            .hero-title::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background: #007bff;
+                transition: width 0.3s ease;
+            }
+            
+            #home:hover .hero-title {
+                transform: translateY(-3px);
+            }
+            
+            #home:hover .hero-title::after {
+                width: 100%;
+            }
+            
+            /* Efeito no subtítulo */
+            .hero-subtitle {
+                transition: all 0.4s ease;
+                transform: scale(1);
+                display: inline-block;
+                margin-top: 0.5rem;
+            }
+            
+            #home:hover .hero-subtitle {
+                transform: scale(1.03);
+                letter-spacing: 0.5px;
+            }
+            
+            /* Efeito no botão */
+            .hero-button {
+                position: relative;
+                overflow: hidden;
+                transition: all 0.4s ease;
+                z-index: 1;
+                padding: 0.75rem 2rem;
+            }
+            
+            .hero-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: all 0.6s ease;
+                z-index: -1;
+            }
+            
+            #home:hover .hero-button {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+            }
+            
+            #home:hover .hero-button::before {
+                left: 100%;
+            }
+            
+            /* Efeito de flutuação geral */
+            .hero-content {
+                transition: transform 0.5s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            #home:hover .hero-content {
+                transform: translateY(-10px);
+            }
+        </style>
+
+        <!-- Seção Serviços -->
+        <section id="servicos" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Nossos Serviços</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card service-card">
+                            <div class="card-body">
+                                <h3 class="card-title">Desenvolvimento Web</h3>
+                                <p class="card-text">Criação de sites e landing pages responsivas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card service-card">
+                            <div class="card-body">
+                                <h3 class="card-title">Criação de Logos</h3>
+                                <p class="card-text">Design profissional para a sua marca.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card service-card">
+                            <div class="card-body">
+                                <h3 class="card-title">Suporte Técnico</h3>
+                                <p class="card-text">Assistência técnica em domicílio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            .service-card {
+                transition: all 0.3s ease;
+                border: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                height: 100%;
+            }
+            
+            .service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            }
+            
+            .card-title {
+                color: #333;
+                transition: color 0.3s ease;
+            }
+            
+            .service-card:hover .card-title {
+                color: #007bff; /* Ou qualquer cor que combine com seu tema */
+            }
+            
+            .card-text {
+                color: #666;
+                transition: color 0.3s ease;
+            }
+            
+            .service-card:hover .card-text {
+                color: #333;
+            }
+        </style>
+        <!-- Seção Sobre -->
+        <section id="sobre" class="py-5 bg-light">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="text-center mb-5 about-title">Sobre Nós</h2>
+                    <div class="about-text">
+                        <p class="text-center lead about-intro">Na <span class="highlight">Real for Tech</span>, transformamos desafios tecnológicos em <span class="highlight">vantagens competitivas</span> para seu negócio.</p>
+                        
+                        <div class="about-card">
+                            <p>Somos especialistas em <span class="highlight">soluções digitais sob medida</span> que impulsionam eficiência, produtividade e crescimento sustentável. Nossa equipe combina expertise técnica e visão estratégica para entregar:</p>
+                            
+                            <ul class="about-features">
+                                <li><span class="feature-icon">🚀</span> Sistemas e aplicativos personalizados</li>
+                                <li><span class="feature-icon">🔒</span> Integrações seguras e escaláveis</li>
+                                <li><span class="feature-icon">📊</span> Análise de dados inteligente</li>
+                                <li><span class="feature-icon">💡</span> Estratégias de transformação digital</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="about-differentiators mt-4">
+                            <h3 class="text-center mb-3">Nosso Diferencial:</h3>
+                            <div class="differentiator-grid">
+                                <div class="diff-item">
+                                    <div class="diff-icon">✔</div>
+                                    <h4>Excelência Garantida</h4>
+                                    <p>Qualidade e performance em cada etapa do projeto</p>
+                                </div>
+                                <div class="diff-item">
+                                    <div class="diff-icon">✔</div>
+                                    <h4>Foco no Cliente</h4>
+                                    <p>Soluções que superam expectativas</p>
+                                </div>
+                                <div class="diff-item">
+                                    <div class="diff-icon">✔</div>
+                                    <h4>Tecnologia de Ponta</h4>
+                                    <p>Ferramentas e metodologias avançadas</p>
+                                </div>
+                                <div class="diff-item">
+                                    <div class="diff-icon">✔</div>
+                                    <h4>Parceria Estratégica</h4>
+                                    <p>Acompanhamos sua evolução contínua</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-center mt-4 about-cta">Pronto para <span class="highlight">elevar seu negócio</span> a novos patamares? <br> Vamos <span class="highlight">construir o futuro</span> juntos! 🚀</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            /* Efeitos gerais */
+            .about-content {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            .highlight {
+                color: #007bff;
+                font-weight: 600;
+                position: relative;
+                display: inline-block;
+            }
+            
+            .highlight::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #007bff;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+            
+            .highlight:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            
+            /* Título animado */
+            .about-title {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .about-title::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background: #007bff;
+                transition: all 0.4s ease;
+            }
+            
+            .about-title:hover::after {
+                width: 120px;
+                background: #28a745;
+            }
+            
+            /* Card flutuante */
+            .about-card {
+                background: white;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                margin: 2rem 0;
+                transition: all 0.4s ease;
+                border-left: 4px solid #007bff;
+            }
+            
+            .about-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+            
+            /* Lista de features */
+            .about-features {
+                list-style: none;
+                padding: 0;
+            }
+            
+            .about-features li {
+                padding: 0.5rem 0;
+                position: relative;
+                padding-left: 2rem;
+            }
+            
+            .feature-icon {
+                position: absolute;
+                left: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .about-features li:hover .feature-icon {
+                transform: scale(1.3);
+            }
+            
+            /* Diferenciais em grid */
+            .differentiator-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .diff-item {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                text-align: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            }
+            
+            .diff-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            }
+            
+            .diff-icon {
+                font-size: 1.5rem;
+                color: #28a745;
+                margin-bottom: 0.5rem;
+                transition: all 0.3s ease;
+            }
+            
+            .diff-item:hover .diff-icon {
+                transform: scale(1.3);
+            }
+            
+            /* CTA final */
+            .about-cta {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+    </main>
+    
+    <!-- Seção Contato-->
+        <section id="contato" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Contato</h2>
+                <form method="post" class="mx-auto" style="max-width: 500px;">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Real for Tech. Todos os direitos reservados.</p>
+            <p>Contato: (61) 98622-2552 | Rft@gmail.com</p>
+            <div class="social-links">
+                <a href="# class="text-white me-3">Facebook</a>
+                <a href="# class="text-white me-3">Instagram</a>
+                <a href="# class="text-white">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

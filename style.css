@@ -1,0 +1,63 @@
+
+/* Estilos para os botões de navegação */
+nav ul li a {
+    position: relative;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de borda dinâmica */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #00ff88; /* Cor da borda */
+    transform: scaleX(0); /* Inicialmente invisível */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expande a borda */
+    transform-origin: left;
+}
+
+/* Efeito de cor ao passar o mouse */
+nav ul li a:hover {
+    color: #00ff88; /* Muda a cor do texto */
+}
+    .service-card {
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-title {
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .service-card:hover .card-title {
+        color: #007bff; /* Ou qualquer cor que combine com seu tema */
+    }
+    
+    .card-text {
+        color: #666;
+        transition: color 0.3s ease;
+    }
+    
+    .service-card:hover .card-text {
+        color: #333;
+    }
